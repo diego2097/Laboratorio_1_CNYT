@@ -1,16 +1,20 @@
 from sys import stdin
 import math
 
+
+def fase(c):
+    rta = math.atan2(c[1],c[0])
+    return rta
 def aCartesiano(c):
     rta = []
-    rta.append(round(c[0] * math.cos(math.radians(c[1])),1))
-    rta.append(round(c[0] * math.sin(math.radians(c[1])),1))
+    rta.append(c[0] * math.cos(math.radians(c[1])))
+    rta.append(c[0] * math.sin(math.radians(c[1])))
     return rta
 
 def aPolar(c):
     rta = []
     rta.append(modulo(c))
-    rta.append(math.degrees(math.atan(c[1]/c[0])))
+    rta.append(math.atan(c[1]/c[0]))
     return rta
 
 def conjugado(c):
