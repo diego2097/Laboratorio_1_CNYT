@@ -43,6 +43,36 @@ class TestCalculator(unittest.TestCase):
         c = cmath.phase(complex(1,4))
         rta = Lab1.fase([1,4])
         self.assertEqual(rta,c)
-
+    def test_sumaVectores(self):
+        v1 = [[4,5],[8,7],[2,1],[3,9]]
+        v2 = [[2,1],[1,5],[3,4],[8,9]]
+        v3 = []
+        for i in range(len(v1)):
+            v3.append(complex(v1[i][0],v1[i][1]) + complex(v2[i][0],v2[i][1]))
+        vrta = Lab1.sumaVectores(v1,v2)
+        for i in range(len(vrta)):
+            vrta[i] = complex(vrta[i][0],vrta[i][1])
+        self.assertEqual(v3,vrta)
+    def test_inversoVector(self):
+        v1 = [[4,5],[8,7],[2,1],[3,9]]
+        inverso = [[-4,-5],[-8,-7],[-2,-1],[-3,-9]]
+        vrta = Lab1.inversoVector(v1)
+        self.assertEqual(inverso,vrta)
+        v2 = [[0.5,5],[-5,7],[2,1],[3,9]]
+        inverso2 = [[-0.5,-5],[5,-7],[-2,-1],[-3,-9]]
+        vrta2 = Lab1.inversoVector(v2)
+        self.assertEqual(inverso2,vrta2)
+    def test_multiEscalarVector(self):
+        v1 = [[4,5],[8,7],[2,1],[3,9]]
+        c = [5,8]
+        v3 = []
+        for i in range(len(v1)):
+            v3.append(complex(c[0],c[1]) * complex(v1[i][0],v1[i][1]))
+        vrta = Lab1.multiEscalarVector(c,v1)
+        for i in range(len(vrta)):
+            vrta[i] = complex(vrta[i][0],vrta[i][1])
+        self.assertEqual(v3,vrta)
+    
+        
 if __name__ == "__main__":
     unittest.main()
