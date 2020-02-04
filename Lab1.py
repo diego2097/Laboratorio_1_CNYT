@@ -1,6 +1,10 @@
 from sys import stdin
 import math
 
+
+
+
+
 def Transpuesta(m):
     matriz = [[]]
     for i in range (len(m)):
@@ -24,12 +28,26 @@ def inversaMatrices(m):
 
 def sumaMatrices(m1,m2):
     if (len(m1) == len(m2) and len(m1[0]) == len(m2[0])):
-        matriz = [[]]
-        for i in range (len(m1)):
-            for j in range (len(m2)):
+        matriz = crearMatrizVacia(len(m1),len(m2))    
+        for i in range(len(m1)): 
+            print(matriz)
+            for j in range(len(m2)): 
+                print(matriz[i][j])
                 matriz[i][j] = suma(m1[i][j],m2[i][j])
+                print(matriz[i][j])
+
         return matriz
     return None
+
+
+def crearMatrizVacia(m,n): 
+    matriz = []
+    fila = []
+    for j in range(n): 
+        fila.append([0,0])
+    for i in range(m):
+        matriz.append(fila)
+    return matriz
 
 def multiEscalarVector(c,v):
     vector = []
@@ -106,3 +124,10 @@ def suma(c1,c2):
     return rta 
 
 
+def main(): 
+    m1 = [[[1,2],[3,4]],[[1,2],[8,4]]]
+    m2 = [[[1,2],[3,4]],[[1,2],[8,4]]]
+    rta = sumaMatrices(m1,m2) 
+    print(rta)
+
+main()    

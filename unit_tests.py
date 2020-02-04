@@ -72,7 +72,14 @@ class TestCalculator(unittest.TestCase):
         for i in range(len(vrta)):
             vrta[i] = complex(vrta[i][0],vrta[i][1])
         self.assertEqual(v3,vrta)
-    
+    def test_sumaMatrices(self):
+        m1 = [[[1,2],[3,4],[2,5]],[[1,2],[8,4],[1,4]],[[3,2],[5,6],[8,1]]]
+        m2 = [[[1,2],[3,4],[2,5]],[[1,2],[8,4],[1,4]],[[3,2],[5,6],[8,1]]]
+        rta = [[[2,4],[6,8],[4,10]],[[2,4],[16,8],[2,8]],[[6,4],[10,12],[16,2]]]
+
+        vrta = Lab1.sumaMatrices(m1,m2)
         
+        self.assertEqual(rta,vrta)
+
 if __name__ == "__main__":
     unittest.main()
