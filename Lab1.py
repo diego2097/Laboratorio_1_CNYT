@@ -2,27 +2,43 @@ from sys import stdin
 import math
 
 
+def completarMatrizResultado(temp,matriz,i,j):
+    m = len(temp)
+    n = len(temp[0])
+    fila = 0
+    col = 0 
+    for i in range((m*i),m*(i+1)):
+        for j in range((n*j),n*(j+1)):
+            matriz[i][j]=temp[fila][col]
+            col+=1
+        fila+=1
+        col=0
 
+def productoTensorMatrices(m1,m2):
+    matriz = crearMatrizVacia(len(m1)*len(m2),len(m1[0]*len(m2[0])))    
+    for i in range(len(m1)):
+        for j in range(len(m1[0])):
+            temp = multiEscalarMatrices(m1[i][j],m2)
+            completarMatrizResultado(temp, matriz, i, j)
+    return matriz; 
 
-
-def Transpuesta(m):
-    matriz = [[]]
+def transpuesta(m):
+    matriz = crearMatrizVacia(len(m[0]),len(m))    
     for i in range (len(m)):
-        for j in range (len(m)):
+        for j in range (len(m[0])):
             matriz[j][i] = m[i][j]
     return matriz
 
 def multiEscalarMatrices(c,m):
-    matriz = [[]]
-    for i in range (len(m1)):
-        for j in range (len(m2)):
-            matriz[i][j] = multiplicacion[c,m[i][j]]
+    matriz = crearMatrizVacia(len(m),len(m))    
+    for i in range (len(m)):
+        matriz[i] = multiEscalarVector(c,m[i])
     return matriz
 
 def inversaMatrices(m):
-    matriz = [[]]
-    for i in range (len(m1)):
-        for j in range (len(m2)):
+    matriz = crearMatrizVacia(len(m),len(m))    
+    for i in range (len(m)):
+        for j in range (len(m)):
             matriz[i][j] = [m[i][j][0]*-1, m[i][j][1]*-1]
     return matriz
 
@@ -30,23 +46,14 @@ def sumaMatrices(m1,m2):
     if (len(m1) == len(m2) and len(m1[0]) == len(m2[0])):
         matriz = crearMatrizVacia(len(m1),len(m2))    
         for i in range(len(m1)): 
-            print(matriz)
             for j in range(len(m2)): 
-                print(matriz[i][j])
                 matriz[i][j] = suma(m1[i][j],m2[i][j])
-                print(matriz[i][j])
-
         return matriz
     return None
 
 
 def crearMatrizVacia(m,n): 
-    matriz = []
-    fila = []
-    for j in range(n): 
-        fila.append([0,0])
-    for i in range(m):
-        matriz.append(fila)
+    matriz = [[[0,0] for col in range(n)] for ren in range(m)]
     return matriz
 
 def multiEscalarVector(c,v):
@@ -127,7 +134,9 @@ def suma(c1,c2):
 def main(): 
     m1 = [[[1,2],[3,4]],[[1,2],[8,4]]]
     m2 = [[[1,2],[3,4]],[[1,2],[8,4]]]
-    rta = sumaMatrices(m1,m2) 
+    m3 = [[[1,2],[3,4],[4,5]],[[5,2],[6,4],[7,5]]]
+    c = [1,1]
+    rta = transpuesta(m3) 
     print(rta)
 
 main()    
