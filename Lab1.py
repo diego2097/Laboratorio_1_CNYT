@@ -6,12 +6,12 @@ import math
 
 
 def multiplicarMatrices(m1,m2):
-    if (len(m1) == len(m2) and len(m1[0]) == len(m2[0])):
-        matriz = crearMatrizVacia(len(m1),len(m2))    
+    if (len(m1[0]) == len(m2)):
+        matriz = crearMatrizVacia(len(m1),len(m2[0]))    
         for i in range(len(m1)):
-            for j in range(len(m1)):
+            for j in range(len(m2[0])):
                 acumulador = [0,0]
-                for k in range(len(m1)):
+                for k in range(len(m1[0])):
                     acumulador = suma(acumulador,multiplicacion(m1[i][k],m2[k][j])) 
                 matriz[i][j] = acumulador
         return matriz
@@ -148,15 +148,16 @@ def suma(c1,c2):
 
 def main(): 
     m1 = [[[1,2],[3,4]],[[1,2],[8,4]]]
+    
     c = [8,4]
-    rta = multiplicarMatrices(m1,m1) 
+    #rta = multiplicarMatrices(m1,m1) 
     
     # Simulacion de circuito 
 
     q0 = [[[1,0]],[[0,0]]]       
     q00 = productoTensorMatrices(q0,q0)
-    print(q00)
-    c = [1/2,0]
+
+    c = [1/math.sqrt(2),0]
     temp = [[[1,0],[1,0]],[[1,0],[-1,0]]]
     H = multiEscalarMatrices(c,temp)
 
@@ -165,15 +166,9 @@ def main():
     M1 = productoTensorMatrices(H,H)
 
     M2 = productoTensorMatrices(H,X)
-
-    """for i in M1:
-        print(i)
-    print("----------------------")
-    for i in M2:
-        print(i)
-    """
-
-    temp2 = multiplicarMatrices(M1,M2)
-    for i in temp2:
+    
+    temp2 = multiplicarMatrices(M2,q00)
+    rta = multiplicarMatrices(M1,temp2)
+    for i in rta:
         print(i)
 main()    
