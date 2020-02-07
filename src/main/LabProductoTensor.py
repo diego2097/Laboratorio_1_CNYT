@@ -11,20 +11,20 @@ def main():
     # Simulacion de circuito 
 
     q0 = [[[1,0]],[[0,0]]]       
-    q00 = matrices.productoTensorMatrices(q0,q0)
+    q00 = matrices.productoTensor(q0,q0)
 
     c = [1/math.sqrt(2),0]
     temp = [[[1,0],[1,0]],[[1,0],[-1,0]]]
-    H = matrices.multiEscalarMatrices(c,temp)
+    H = matrices.multiplicarPorEscalar(c,temp)
 
     X = [[[0,0],[1,0]],[[1,0],[0,0]]]
 
-    M1 = matrices.productoTensorMatrices(H,H)
+    M1 = matrices.productoTensor(H,H)
 
-    M2 = matrices.productoTensorMatrices(H,X)
+    M2 = matrices.productoTensor(H,X)
     
-    temp2 = matrices.multiplicarMatrices(M2,q00)
-    rta = matrices.multiplicarMatrices(M1,temp2)
+    temp2 = matrices.multiplicar(M2,q00)
+    rta = matrices.multiplicar(M1,temp2)
 
     for i in rta:
         print(i)

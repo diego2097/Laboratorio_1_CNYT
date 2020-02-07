@@ -1,6 +1,12 @@
 from sys import stdin 
 import math 
 
+
+
+def distancia(c1,c2):
+    rta = modulo(resta(c1,c2))
+    return rta 
+
 def fase(c):
     rta = math.atan2(c[1],c[0])
     return rta
@@ -54,3 +60,8 @@ def suma(c1,c2):
     rta.append(c1[0] + c2[0])
     rta.append(c1[1] + c2[1])
     return rta 
+
+def iguales(c1,c2):
+    rta = (c1[0] == c2[0] and c1[1] == c2[1])
+    return rta 
+
