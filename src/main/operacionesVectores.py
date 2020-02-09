@@ -22,7 +22,7 @@ def productoInterno(v1,v2):
     if (len(v1) == len(v2)):
         vconj = conjugado(v1)
         rta = [0,0]
-        for in range(len(v1)):
+        for i in range(len(v1)):
             rta = complejos.suma(rta,complejos.multiplicacion(vconj[i],v2[i]))
         return rta 
     return None
@@ -63,7 +63,7 @@ def suma(v1,v2):
 
 def iguales(v1,v2):
     if (len(v1) == (len(v2))):
-        for i in range(len(v1):
+        for i in range(len(v1)):
             if (complejos.iguales(v1[i],v2[i]) == False):
                 return False
         return True 

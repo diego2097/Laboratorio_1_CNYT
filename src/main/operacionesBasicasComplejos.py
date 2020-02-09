@@ -20,7 +20,7 @@ def aCartesiano(c):
 def aPolar(c):
     rta = []
     rta.append(modulo(c))
-    rta.append(math.atan(c[1]/c[0]))
+    rta.append(math.atan2(c[1],c[0]))
     return rta
 
 def conjugado(c):

@@ -23,22 +23,33 @@ def productoTensor(m1,m2):
             completarMatrizResultado(temp, matriz, i, j)
     return matriz; 
 
+
 def esHermitiana(m):
-    adjunta = adjunta(m)
-    if (iguales(m,adjunta))
+    matriz_adjunta = adjunta(m)
+    if (iguales(m,matriz_adjunta)):
         return True
 
 def esUnitaria(m):
-    adjunta = adjunta(m)
-    resultado = multiplicar(m,adjunta)
-    resultado2 = multiplicar(adjunta,m)
+    matriz_adjunta = adjunta(m)
+    resultado = multiplicar(m,matriz_adjunta)
+    resultado2 = multiplicar(matriz_adjunta,m)
     if (esIdentidad(resultado) and esIdentidad(resultado2)):
         return True 
     return False
 
-def accionSobreVector():
-    print("developing")
-
+def accionSobreVector(m,v):
+    if (len(m[0]) == len(v)):
+        matriz_vector = crearMatrizVacia(len(v),1)
+        for i in range(len(matriz_vector)): 
+            matriz_vector[i][0] = v[i]
+            
+        matriz_multiplicacion = multiplicar(m,matriz_vector)
+        vectorFinal = []
+        for i in matriz_multiplicacion:
+            vectorFinal.append(i[0])    
+        return vectorFinal 
+    return None 
+        
 def multiplicar(m1,m2):
     if (len(m1[0]) == len(m2)):
         matriz = crearMatrizVacia(len(m1),len(m2[0]))    
@@ -54,7 +65,7 @@ def multiplicar(m1,m2):
 def adjunta(m):
     matriz = transpuesta(m)    
     matriz = conjugada(matriz)
-    return adjunta
+    return matriz
 
 def conjugada(m):
     matriz = crearMatrizVacia(len(m),len(m[0]))    
@@ -87,7 +98,7 @@ def suma(m1,m2):
         matriz = crearMatrizVacia(len(m1),len(m2))    
         for i in range(len(m1)): 
             for j in range(len(m2)): 
-                matriz[i][j] = suma(m1[i][j],m2[i][j])
+                matriz[i][j] = complejos.suma(m1[i][j],m2[i][j])
         return matriz
     return None
 
@@ -106,8 +117,17 @@ def esIdentidad(m1):
 
 def iguales(m1,m2):
     if (len(m1) == (len(m2))):
-        for i in range(len(m1):
+        for i in range(len(m1)):
             if (vectores.iguales(m1[i],m2[i]) == False):
                 return False
         return True 
     return False 
+
+def main():
+    m1 = [[[1,2],[3,4]],[[5,8],[4,7]]]
+    v = [[1,1],[2,2]]
+
+    rta = accionSobreVector(m1,v)
+
+
+main()
