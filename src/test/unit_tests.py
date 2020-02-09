@@ -1,5 +1,6 @@
-import sys
-sys.path.append('C:/Users/USUARIO/Documents/2020/Universidad/semestre 9/CNYT/Laboratorio_1_CNYT/src/main')
+from os.path import dirname, join, abspath
+import sys 
+sys.path.insert(0, abspath(join(dirname(__file__), '..')) + "\main")
 import unittest
 import operacionesBasicasComplejos as basic
 import operacionesVectores as vectores
@@ -94,6 +95,8 @@ class TestCalculator(unittest.TestCase):
         rta = [[[2,4],[6,8],[4,10]],[[2,4],[16,8],[2,8]],[[6,4],[10,12],[16,2]]]
         vrta = matrices.suma(m1,m2)
         self.assertEqual(rta,vrta)
+
+    
 
 if __name__ == "__main__":
     unittest.main()
