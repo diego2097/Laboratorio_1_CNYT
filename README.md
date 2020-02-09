@@ -8,7 +8,7 @@ Libreria para hacer operaciones entre numeros complejos.
 
 La libreria utiliza vectores para simular los numeros complejos. En el vector [a,b] a representa la parte real del numero complejo y b la parte imaginaria. La libreria soporta las siguientes operaciones: 
 
-## Funcionalidades 
+### Funcionalidades 
 
 ### Operaciones entre complejos
 
