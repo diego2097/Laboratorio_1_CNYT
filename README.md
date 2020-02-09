@@ -98,10 +98,11 @@ import operacionesMatrices
 
 ### Ejecutar las pruebas  
 
-Para ejecutar las pruebas debe correer el archivo unit_tests.py
+Para ejecutar las pruebas desde el directorio del proyecto ejecutar
 ```
-python unit_tests.py
+python src/test/unit_tests.py
 ```
+
 ### Construido con
 
 - [Python](https://www.python.org/downloads/)
