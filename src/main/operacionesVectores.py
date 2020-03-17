@@ -2,6 +2,15 @@ from sys import stdin
 import math 
 import operacionesBasicasComplejos as complejos
 
+
+
+def norma(vector): 
+    norma = 0 
+    for i in range(len(vector)): 
+        norma = norma + math.pow(complejos.modulo(vector[i]),2)
+    norma = math.sqrt(norma)
+    return norma 
+
 def productoTensor(v1,v2):
     vector = []
     for i in range (len(v1)):
