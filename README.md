@@ -74,6 +74,12 @@ La libreria utiliza vectores para simular los numeros complejos. En el vector [a
 
 - productoTensor(matriz1[v1,v2...vn],matriz2[v1,v2...vn]): Recibe dos matrices. Retorna el producto tensor entre ambas.
 
+### Operaciones estados cuanticos 
+
+- positionProbability(particlePos,vector[c1,c2..cn],len): Recibe la posicion de la particula en el vector, el vector de estados y la longitud de este. Retorna la probabilidad de que la particula se encuentre en esa posicion. 
+
+- transitionAmplitude(v1[c1,c2..cn],v2[c1,c2..cn]): Recibe dos vectores de complejos y retorna la amplitud de transicion del vector1 al vector2
+
 ### Prerequisitos 
 
 Para poder ejecutar esta libreria se necesita tener instalado python 3.7 o superior. Para descargar, puede hacerlo directamente de la 
@@ -94,6 +100,7 @@ Recuerde que para utilizar la libreria en su proyecto debe importarla
 import operacionesVectores  
 import operacionesBasicasComplejos 
 import operacionesMatrices
+import QuantumStates
 ```
 
 ### Ejecutar las pruebas  
@@ -101,6 +108,10 @@ import operacionesMatrices
 Para ejecutar las pruebas desde el directorio del proyecto ejecutar
 ```
 python src/test/unit_tests.py
+```
+
+```
+python src/test/unit_tests_quantumStates.py
 ```
 
 ### Construido con
